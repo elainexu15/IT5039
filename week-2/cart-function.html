@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Cart quantity</p>
+
+    <button onclick="showQuantity()">Show Quantity</button>
+
+    <button onclick="addToCart(1)">Add to Cart</button>
+
+    <button onclick="addToCart(2)">+2</button>
+
+    <button onclick="addToCart(3)">+3</button>
+
+    <button onclick="resetCart()">Reset Button</button>
+
+    <script>
+      let cartQuantity = 0;
+
+      function showQuantity() {
+        alert(`cart quantity is ${cartQuantity}`);
+      }
+
+      function addToCart(amount) {
+        cartQuantity += amount;
+        showQuantity();
+      }
+
+      function resetCart() {
+        cartQuantity = 0;
+        showQuantity();
+      }
+    </script>
+  </body>
+</html>
