@@ -4,8 +4,8 @@
 * {
   margin: 0;
   padding: 0;
-  text-decoration: none;
   font-family: "Poppins", monospace;
+  line-height: 1.5;
 }
 
 .menu-links {
@@ -29,6 +29,7 @@ nav ul li a {
   padding: 20px 25px;
   color: #fff;
   font-size: 20px;
+  text-decoration: none;
 }
 ul.dropdown {
   position: absolute;
@@ -50,18 +51,18 @@ ul.dropdown {
   font-family: "Poppins", monospace;
 }
 
-ul {
+nav ul {
   list-style: none;
   background: #8c52ff;
   display: flex;
   justify-content: end;
 }
 
-ul li {
+nav ul li {
   position: relative;
 }
 
-ul li a {
+nav ul li a {
   display: block;
   padding: 20px 25px;
   color: #fff;
@@ -70,7 +71,7 @@ ul li a {
   font-size: 20px;
 }
 
-ul li ul.dropdown {
+nav ul li ul.dropdown {
   width: 100%;
   background: #8c52ff;
   position: absolute;
@@ -78,10 +79,10 @@ ul li ul.dropdown {
   display: none;
 }
 
-ul li a:hover {
+nav ul li a:hover {
   background-color: #6d30e9;
 }
 
-ul li:hover ul.dropdown {
+nav ul li:hover ul.dropdown {
   display: block;
 }
