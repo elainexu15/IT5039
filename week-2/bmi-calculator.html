@@ -24,24 +24,23 @@
       function calculateBmi() {
         let weight = parseFloat(document.getElementById("weight").value);
         let height = parseFloat(document.getElementById("height").value);
-        if (weight <= 0 || height <= 0) {
-          alert("Please enter valid positive numbers for weight and height.");
-          return;
-        }
+        if (weight > 0 || height > 0) {
+          let bmi = weight / (height * height);
+          bmi = bmi.toFixed(2);
+          document.getElementById("bmi-result").innerText = `You BMI is ${bmi}`;
 
-        let bmi = weight / (height * height);
-        bmi = bmi.toFixed(2);
-        document.getElementById("bmi-result").innerText = `You BMI is ${bmi}`;
-
-        if (bmi < 18.5) {
-          document.getElementById("health-status").innerText =
-            "You are underweight.";
-        } else if (bmi >= 18.5 && bmi < 25) {
-          document.getElementById("health-status").innerText =
-            "You have a healthy weight.";
+          if (bmi < 18.5) {
+            document.getElementById("health-status").innerText =
+              "You are underweight.";
+          } else if (bmi >= 18.5 && bmi < 25) {
+            document.getElementById("health-status").innerText =
+              "You have a healthy weight.";
+          } else {
+            document.getElementById("health-status").innerText =
+              "You are overweight.";
+          }
         } else {
-          document.getElementById("health-status").innerText =
-            "You are overweight.";
+          alert("Please enter valid positive numbers for weight and height.");
         }
       }
     </script>
