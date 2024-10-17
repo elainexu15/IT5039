@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Simple Tax Calculator</h1>
+    <p>
+      Please enter your annual income in the box below and click "Calculate" to
+      see your estimated tax.
+    </p>
+    <input id="salary-input" type="number" placeholder="Enter your salary" />
+    <button onclick="calculateTax()">Calculator</button>
+    <br />
+    <br />
+    <div id="result-container"></div>
+    <script>
+      function calculateTax() {
+        let salary = document.getElementById("salary-input").value;
+        // The value retrieved from the input field is always a string, even if it's a number. Using parseFloat ensures that you convert this string to a floating-point number for accurate calculations.
+        salary = parseFloat(salary);
+
+        if (salary > 0) {
+          // check if salary is non-negative
+          let tax;
+          if (salary <= 15600) {
+            tax = salary * 0.105;
+          } else if (salary > 15600 && salary <= 53500) {
+            tax = 15600 * 0.105 + (salary - 15600) * 0.175;
+          } else if (salary > 53500 && salary <= 78100) {
+            tax =
+              15600 * 0.105 + (53500 - 15600) * 0.175 + (salary - 53500) * 0.3;
+          } else if (salary > 78100 && salary <= 180000) {
+            tax =
+              15600 * 0.105 +
+              (53500 - 15600) * 0.175 +
+              (78100 - 53500) * 0.3 +
+              (salary - 78100) * 0.33;
+          } else if (salary > 180000) {
+            tax =
+              15600 * 0.105 +
+              (53500 - 15600) * 0.175 +
+              (78100 - 53500) * 0.3 +
+              (180000 - 78100) * 0.33 +
+              (salary - 180000) * 0.39;
+          }
+
+          document.getElementById(
+            "result-container"
+          ).innerText = `Your salary is ${salary}. Your tax is ${tax}.`;
+        } else {
+          alert(
+            "Invalid salary value entered. Please enter a positive number."
+          );
+          document.getElementById(
+            "result-container"
+          ).innerText = `Invalid salary value entered. Please enter a positive number.`;
+        }
+      }
+
+      /*
+      // prompt the user to enter a salary amount
+      let salary = prompt("Please enter your annual income: ");
+      salary = parseFloat(salary);
+
+      if (!isNaN(salary) && salary > 0) {
+        let tax;
+        salary = Number(salary);
+        if (salary <= 15600) {
+          tax = salary * 0.105;
+        } else if (salary > 15600 && salary <= 53500) {
+          tax = 15600 * 0.105 + (salary - 15600) * 0.175;
+        } else if (salary > 53500 && salary <= 78100) {
+          tax =
+            15600 * 0.105 + (53500 - 15600) * 0.175 + (salary - 53500) * 0.3;
+        } else if (salary > 78100 && salary <= 180000) {
+          tax =
+            15600 * 0.105 +
+            (53500 - 15600) * 0.175 +
+            (78100 - 53500) * 0.3 +
+            (salary - 78100) * 0.33;
+        } else if (salary > 180000) {
+          tax =
+            15600 * 0.105 +
+            (53500 - 15600) * 0.175 +
+            (78100 - 53500) * 0.3 +
+            (180000 - 78100) * 0.33 +
+            (salary - 180000) * 0.39;
+        }
+
+        document.getElementById(
+          "result-container"
+        ).innerText = `Your salary is ${salary}. Your tax is ${tax}.`;
+      } else {
+        alert("Invalid salary value entered. Please enter a positive number.");
+        document.getElementById(
+          "result-container"
+        ).innerText = `Invalid salary value entered. Please enter a positive number.`;
+      }
+
+      */
+    </script>
+  </body>
+</html>
+
+<!-- parseFloat is a JavaScript function that turns a string into a decimal number. It reads the string and finds the first part that looks like a number, then converts it. If the string can’t be turned into a number, it gives you NaN, which means "not a number."
+
+For example, if you use parseFloat("3.14 apples"), it will give you 3.14. But if you use it on something like parseFloat("hello"), it will return NaN. -->

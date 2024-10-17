@@ -12,8 +12,14 @@
         margin: 50px auto;
       }
 
-      main h2 {
-        padding-bottom: 20px;
+      main h2,
+      main h4,
+      main p {
+        padding: 10px;
+      }
+
+      section {
+        margin-bottom: 30px;
       }
     </style>
   </head>
@@ -21,13 +27,7 @@
     <nav>
       <ul class="menu-links">
         <li><a href="../index.html">IT5039</a></li>
-        <li class="menulink-dropdown">
-          <a href="#">Week 1</a>
-          <ul class="dropdown">
-            <li><a href="#">Lecture</a></li>
-            <li><a href="week2-lab.html">Lab</a></li>
-          </ul>
-        </li>
+        <li><a href="#">Week 1</a></li>
         <li><a href="#">Week 2</a></li>
         <li><a href="#">Week 3</a></li>
         <li><a href="#">Week 4</a></li>
@@ -39,12 +39,30 @@
       </ul>
     </nav>
     <main>
-      <section id="week1"></section>
-      <section id="week2">
-        <h2>Week 2 Lab</h2>
-        <ol>
-          <li><a href="cart.html">Cart Quantity</a></li>
-        </ol>
+      <h2>Week 2 Lab</h2>
+      <section id="lab1">
+        <h4>
+          Lab 1.
+          <a href="cart.html" target="_blank"
+            >Shopping Cart Quantity Management</a
+          >
+        </h4>
+        <p>
+          Build a simple web page as above that allows users to manage the
+          quantity of items in a shopping cart.
+        </p>
+      </section>
+      <section id="lab2">
+        <h4>
+          Lab 2.
+          <a href="tax-calculator.html" target="_blank">Tax Calculator</a>
+        </h4>
+        <p>
+          Create a simple Tax Calculator webpage that allows users to input
+          their salary and calculate their tax based on NZ tax rates as shown
+          below.
+        </p>
+        <img src="tax-rates.png" alt="NZ tax rates" width="500px" />
       </section>
     </main>
   </body>
